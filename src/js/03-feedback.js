@@ -19,6 +19,18 @@ function onInputForm(e) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(formData))
 };
 
+function onFormSubmit(e) {
+    e.preventDefault();
+    if (refs.emailEl.value === "" || refs.messageEl.value === "") {
+        
+        return;
+    }
+    console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)))
+    e.currentTarget.reset();
+    localStorage.removeItem(STORAGE_KEY);
+};
+
+
 function populateFormData() {
     const savedFormData = JSON.parse(localStorage.getItem(STORAGE_KEY));
     if (savedFormData) {
@@ -29,9 +41,3 @@ function populateFormData() {
     }
 };
 
-function onFormSubmit(e) {
-    e.preventDefault();
-    console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)))
-    e.currentTarget.reset();
-    localStorage.removeItem(STORAGE_KEY);
-};
