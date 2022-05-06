@@ -22,7 +22,7 @@ function onInputForm(e) {
 function onFormSubmit(e) {
     e.preventDefault();
     if (refs.emailEl.value === "" || refs.messageEl.value === "") {
-        
+        alert('Заполните все поля!')
         return;
     }
     console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)))
